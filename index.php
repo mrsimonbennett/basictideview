@@ -3,6 +3,7 @@ require 'vendor/autoload.php';
 
 date_default_timezone_set('UTC');
 use Carbon\Carbon;
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -39,63 +40,68 @@ use Carbon\Carbon;
         #currentTideImage {
             opacity: 0.5;
             filter: alpha(opacity=50);
-            <?php if(Carbon::now()->hour < 12){?>
-            margin-left:341px;
-            <?php }else{?>
-            margin-left: 62px;
-            <?php }?>
-            margin-top: -21px;
+        <?php if(Carbon::now()->hour < 12){?> margin-left: 341px;
+        <?php }else{?> margin-left: 62px;
+        <?php }?> margin-top: -21px;
             width: 617px;
             height: 727px;
-                }
+        }
 
     </style>
 </head>
 <body>
 
 <div class="container-fluid">
-<div class="row">
-    <div class="image-container col-lg-10">
-        <img src="http://www.ntslf.org/files/surgeforecast/ntslf_lowestoft.1.1.png?time=<?php echo time();?>" alt="" width="1240px">
-        <div class="after">
-            <img src="http://www.ntslf.org/files/ntslf_php/pltdata_tgi.php?port=Lowestoft&span=1" alt=""
-                 id="currentTideImage"/></div>
-    </div>
-    <div class="col-lg-2">
-        <img src="" alt="" id="weatherImage" width="400px" style="margin-top: 100px">
+    <div class="row">
+        <div class="image-container col-lg-10">
+            <img src="http://www.ntslf.org/files/surgeforecast/ntslf_lowestoft.1.1.png?time=<?php echo time(); ?>"
+                 alt="" width="1240px">
+            <div class="after">
+                <img src="http://www.ntslf.org/files/ntslf_php/pltdata_tgi.php?port=Lowestoft&span=1" alt=""
+                     id="currentTideImage"/></div>
+        </div>
+        <div class="col-lg-2">
+            <img src="" alt="" id="weatherImage" width="400px" style="margin-top: 100px">
+
+        </div>
+
 
     </div>
 
-
-</div>
-
-<div class="" style='    margin-left: 67px;     z-index: 100; width: 100% '>
-    <?php for ($i = -1; $i < 3; $i++) {
-        $hour = 0;
-
-        for ($j = 1; $j < 4; $j++) {
-            ?><img src="http://chart-1.msw.ms/gfs/<?php echo (new Carbon())->addDay(($i < 0 ? $i : 0))
-                                                                           ->format('Ymd') ?>00/750/1-<?php echo (new Carbon())->addDay($i)
-                                                                                                                               ->hour($hour*4)
-                                                                                                                               ->minute(0)
-                                                                                                                               ->second(0)->timestamp ?>-4.gif" alt="" width='92px' class="weather"/>
-            <?php
-            $hour += 3;
+    <div class="" style='    margin-left: 67px;     z-index: 100; width: 100% '>
+        <?php
+        $start = -1;
+        if(Carbon::now()->hour < 12){
+            $start = -2;
         }
-    }
 
-    ?>
-</div>
+        for ($i = -2; $i < 3; $i++) {
+
+            $hour = 0;
+
+            for ($j = 1; $j < 4; $j++) {
+                ?><img src="http://chart-1.msw.ms/gfs/<?php echo (new Carbon())->addDay(($i < 0 ? $i : 0))
+                                                                               ->format('Ymd') ?>00/750/1-<?php echo (new Carbon())->addDay($i)
+                                                                                                                                   ->hour($hour * 4)
+                                                                                                                                   ->minute(0)
+                                                                                                                                   ->second(0)->timestamp ?>-4.gif"
+                       alt="" width='92px' class="weather"/>
+                <?php
+                $hour += 3;
+            }
+        }
+
+        ?>
+    </div>
 </div>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <script>
-    $(function(){
-        $('.weather').hover(function()
-        {
-            $('#weatherImage').attr('src',($(this).attr('src')))
+    $(function () {
+        $('.weather').hover(function () {
+            $('#weatherImage').attr('src', ($(this).attr('src')))
         })
     })
 </script>
