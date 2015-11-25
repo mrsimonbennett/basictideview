@@ -39,7 +39,11 @@ use Carbon\Carbon;
         #currentTideImage {
             opacity: 0.5;
             filter: alpha(opacity=50);
+            <?php if(Carbon::now()->hour < 12){?>
+            margin-left:341px;
+            <?php }else{?>
             margin-left: 62px;
+            <?php }?>
             margin-top: -21px;
             width: 617px;
             height: 727px;
@@ -52,7 +56,7 @@ use Carbon\Carbon;
 <div class="container-fluid">
 <div class="row">
     <div class="image-container col-lg-10">
-        <img src="http://www.ntslf.org/files/surgeforecast/ntslf_lowestoft.1.1.png" alt="" width="1240px">
+        <img src="http://www.ntslf.org/files/surgeforecast/ntslf_lowestoft.1.1.png?time=<?php echo time();?>" alt="" width="1240px">
         <div class="after">
             <img src="http://www.ntslf.org/files/ntslf_php/pltdata_tgi.php?port=Lowestoft&span=1" alt=""
                  id="currentTideImage"/></div>
@@ -69,7 +73,7 @@ use Carbon\Carbon;
     <?php for ($i = -1; $i < 3; $i++) {
         $hour = 0;
 
-        for ($j = 0; $j < 3; $j++) {
+        for ($j = 1; $j < 4; $j++) {
             ?><img src="http://chart-1.msw.ms/gfs/<?php echo (new Carbon())->addDay(($i < 0 ? $i : 0))
                                                                            ->format('Ymd') ?>00/750/1-<?php echo (new Carbon())->addDay($i)
                                                                                                                                ->hour($hour*4)
