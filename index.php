@@ -40,7 +40,7 @@ use Carbon\Carbon;
         #currentTideImage {
             opacity: 0.5;
             filter: alpha(opacity=50);
-        <?php if(Carbon::now()->hour < 12){?> margin-left: 341px;
+        <?php if(Carbon::now()->hour < 10){?> margin-left: 341px;
         <?php }else{?> margin-left: 62px;
         <?php }?> margin-top: -21px;
             width: 617px;
@@ -71,7 +71,7 @@ use Carbon\Carbon;
     <div class="" style='    margin-left: 67px;     z-index: 100; width: 100% '>
         <?php
         $start = -1;
-        if(Carbon::now()->hour < 12){
+        if (Carbon::now()->hour < 10) {
             $start = -2;
         }
 
