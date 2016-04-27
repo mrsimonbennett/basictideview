@@ -8,7 +8,7 @@ use Carbon\Carbon;
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Bootstrap 3 Template</title>
+    <title>ColdHam Hall Tide Viewer</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Bootstrap core CSS -->

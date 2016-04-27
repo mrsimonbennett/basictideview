@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <body>
+<title>ColdHam Hall Tide Clock</title>
 
 <canvas id="canvas" width="600" height="600"
         style="background-color:#333">
