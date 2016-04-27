@@ -53,6 +53,12 @@ use Carbon\Carbon;
 
 <div class="container-fluid">
     <div class="row">
+        <div class="col-md-4">
+            <a href="/clock.php">Clock</a>
+        </div>
+    </div>
+    
+    <div class="row">
         <div class="image-container col-lg-10">
             <img src="http://www.ntslf.org/files/surgeforecast/ntslf_lowestoft.1.1.png?time=<?php echo time(); ?>"
                  alt="" width="1240px">
@@ -84,6 +90,7 @@ use Carbon\Carbon;
                                                                                ->format('Ymd') ?>00/750/1-<?php echo (new Carbon())->addDay($i)
                                                                                                                                    ->hour($hour * 4)
                                                                                                                                    ->minute(0)
+
                                                                                                                                    ->second(0)->timestamp ?>-4.gif"
                        alt="" width='92px' class="weather"/>
                 <?php
