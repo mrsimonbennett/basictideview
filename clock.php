@@ -66,7 +66,7 @@
 
     function drawTime(ctx, radius){
         //var lastHighTide = new Date(2016,04,24,8,59);
-        var lastHighTide = new Date(2016,3,26,04,01);
+        var lastHighTide = new Date(2016,3,26,04,20);
         var tideCycleSeconds = (12*60*60)+(25*60) + 14;
         var secondsSinceLastSynchronised=((new Date().getTime()/1000) - (lastHighTide.getTime()/1000));
 
