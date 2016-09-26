@@ -54,7 +54,7 @@ use Carbon\Carbon;
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-4">
-            <a href="/clock.php">Clock</a>
+            <a href="/clock.php" class="btn btn-success">Clock</a>
         </div>
     </div>
     
